@@ -1,0 +1,79 @@
+"use client";
+
+import { SECTION_IDS } from "@/constants/navigation";
+import { toTelHref } from "@/lib/phone";
+import { useLanguage } from "@/context/LanguageProvider";
+import { ExternalAnchor } from "@/components/ui/ExternalAnchor";
+import { SocialLinkChips } from "@/components/ui/SocialLinkChips";
+import { SectionHeading } from "./SectionHeading";
+
+export function ContactSection() {
+  const { t } = useLanguage();
+
+  return (
+    <section id={SECTION_IDS.contact} className="bg-[var(--color-bg)] py-16 sm:py-20 md:py-24">
+      <div className="wrap">
+        <SectionHeading badge={t.nav.contact} title={t.contact.title} intro={t.contact.intro} />
+
+        <div className="mt-10 rounded-xl border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/5 p-5 sm:p-6">
+          <h3 className="font-semibold text-[var(--color-text)]">{t.mainSite.cardTitle}</h3>
+          <p className="mt-2 text-sm text-[var(--color-text-muted)]">{t.mainSite.cardBody}</p>
+          <ExternalAnchor href={t.mainSite.url} className="btn-cta mt-4 text-sm">
+            {t.mainSite.cta}
+          </ExternalAnchor>
+        </div>
+
+        <div className="mt-12 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <article className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+            <h3 className="text-lg font-semibold text-[var(--color-text)]">
+              {t.contact.donate.title}
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-[var(--color-text-muted)]">
+              {t.contact.donate.body}
+            </p>
+            <ExternalAnchor href={t.contact.donate.ctaUrl} className="btn-outline mt-5 text-sm">
+              {t.contact.donate.cta}
+            </ExternalAnchor>
+            <div className="mt-5 rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)]/60 p-4 text-sm text-[var(--color-text)]">
+              <p className="font-semibold text-[var(--color-text)]">{t.contact.donate.contactName}</p>
+              <p className="mt-1 text-[var(--color-text-muted)]">{t.contact.donate.contactRole}</p>
+              <a
+                href={toTelHref(t.contact.donate.contactPhone)}
+                className="mt-2 inline-flex text-[var(--color-accent)] hover:underline"
+              >
+                {t.contact.donate.contactPhone}
+              </a>
+            </div>
+          </article>
+
+          <div className="space-y-6">
+            <article className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+              <p className="text-sm text-[var(--color-text-muted)]">{t.contact.chapterPhone.label}</p>
+              <a
+                href={toTelHref(t.contact.chapterPhone.value)}
+                className="mt-1 block text-lg font-semibold text-[var(--color-accent)] hover:underline"
+              >
+                {t.contact.chapterPhone.value}
+              </a>
+              <p className="mt-2 text-xs text-[var(--color-text-muted)]">{t.chapterLocation}</p>
+            </article>
+
+            <article className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+              <p className="mb-3 text-sm font-semibold text-[var(--color-text)]">
+                {t.contact.socialTitle}
+              </p>
+              <SocialLinkChips links={t.contact.socialFaisalabad} variant="chapter" />
+            </article>
+
+            <article className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+              <p className="mb-3 text-sm font-semibold text-[var(--color-text-muted)]">
+                {t.contact.socialNationalTitle}
+              </p>
+              <SocialLinkChips links={t.contact.socialNational} variant="national" />
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pak Palestine Forum — Faisalabad Chapter
 
-## Getting Started
+A Next.js site for **PPF Faisalabad**, styled like [pakpalforum.com](https://www.pakpalforum.com/) with bilingual (English / Urdu) support. Links to the **national main site** and separates **Faisalabad vs national** social channels.
 
-First, run the development server:
+## Run locally
 
 ```bash
+cd pakpalforum-clone
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## What's included
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Hero image carousel with three slides
+- **Seven main domains** (primary sections):
+  1. Awareness and Narrative Building
+  2. Protests and Public Engagements
+  3. Relief Work in Gaza
+  4. Virtual Adoption Program
+  5. Social Media Campaigns
+  6. Students Activation in Unis, Masajid and Madaris (90% youth team)
+  7. Boycott Movement
+- Contact, volunteer form link, donate info, and social links
+- Floating contact / march event bar
+- PPF Assistant chat widget
+- EN ↔ Urdu language toggle (RTL for Urdu)
 
-## Learn More
+Assets are served from `public/images/` (from the national PPF site).
 
-To learn more about Next.js, take a look at the following resources:
+## Links
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Purpose | URL |
+|--------|-----|
+| National main site | https://www.pakpalforum.com/ |
+| Faisalabad Instagram | https://www.instagram.com/pakpalforum_fsd/ |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Edit chapter phone/social in `src/data/site.ts`.
 
-## Deploy on Vercel
+## Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Next.js 16 (App Router)
+- React 19
+- Tailwind CSS v4
+- TypeScript
+- lucide-react icons
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Note
+
+Admin (`/admin`) and tracker (`/tracker`) routes from the original SPA are not included; this clone focuses on the public marketing site.
