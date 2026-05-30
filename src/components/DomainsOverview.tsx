@@ -27,6 +27,22 @@ const DOMAIN_ICONS: Record<DomainId, LucideIcon> = {
 
 export function DomainsOverview() {
   const { t } = useLanguage();
+  const overview =
+    t.lang === "en"
+      ? {
+          label: "Our work",
+          title: "Seven ways Faisalabad acts for Palestine",
+          intro:
+            "From awareness and relief to students, boycott work, and social campaigns, these are the chapter's core focus areas.",
+          youthNote: "Youth-led across the city · part of Pak Palestine Forum Faisalabad",
+        }
+      : {
+          label: "ہمارا کام",
+          title: "فلسطین کے لیے فیصل آباد کے سات شعبے",
+          intro:
+            "آگاہی، امداد، طلبہ، بائیکاٹ اور سوشل مہمات — یہی چیپٹر کے بنیادی شعبے ہیں۔",
+          youthNote: "شہر بھر میں نوجوانوں کی قیادت · پاک فلسطین فورم فیصل آباد کا حصہ",
+        };
   const scrollToSection = useScrollToSection();
 
   return (
@@ -34,13 +50,13 @@ export function DomainsOverview() {
       <div className="wrap">
         <div className="text-center">
           <p className="font-display text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-accent)]">
-            {t.domainsOverview.label}
+            {overview.label}
           </p>
           <h2 className="font-display mt-3 text-2xl font-semibold text-[var(--color-text)] sm:text-3xl">
-            {t.domainsOverview.title}
+            {overview.title}
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm text-[var(--color-text-muted)] sm:text-base">
-            {t.domainsOverview.intro}
+            {overview.intro}
           </p>
         </div>
 
@@ -67,7 +83,7 @@ export function DomainsOverview() {
 
         <p className="mt-6 flex items-center justify-center gap-2 text-center text-xs text-[var(--color-text-muted)]">
           <Users className="h-4 w-4 text-[var(--color-accent)]" aria-hidden />
-          {t.domainsOverview.youthNote}
+          {overview.youthNote}
         </p>
       </div>
     </section>
