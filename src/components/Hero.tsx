@@ -36,7 +36,7 @@ export function Hero() {
     <section
       id={SECTION_IDS.hero}
       ref={ref}
-      className="relative flex h-[52svh] flex-col justify-end overflow-hidden sm:h-[100dvh]"
+      className="relative flex h-screen flex-col justify-center overflow-hidden sm:h-[100dvh] sm:justify-end"
     >
       <div className="absolute inset-0 overflow-hidden" aria-hidden>
         {IMAGES.heroSlides.map((src, index) => (
@@ -64,7 +64,7 @@ export function Hero() {
 
       <div
         className={cn(
-          "hero-content hero-mobile-content wrap relative z-10 min-w-0 pb-[min(14vh,5.5rem)] pt-28 sm:pb-[20vh] sm:pt-32 lg:pt-44",
+          "hero-content wrap relative z-10 min-w-0 pb-[min(14vh,5.5rem)] pt-8 sm:pb-[20vh] sm:pt-32 lg:pt-44",
           "reveal-section",
           isVisible && "reveal-section--visible",
           "reveal-section--hero",
