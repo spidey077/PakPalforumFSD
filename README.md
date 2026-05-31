@@ -46,7 +46,3 @@ Edit chapter phone/social in `src/data/site.ts`.
 - Tailwind CSS v4
 - TypeScript
 - lucide-react icons
-
-## Note
-
-Admin (`/admin`) and tracker (`/tracker`) routes from the original SPA are not included; this clone focuses on the public marketing site.
