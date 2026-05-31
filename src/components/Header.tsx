@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useCallback, useState, type MouseEvent } from "react";
 import { IMAGES } from "@/constants/images";
-import { NAV_ITEMS, SECTION_IDS } from "@/constants/navigation";
+import { JOIN_US_FORM_URL, NAV_ITEMS, SECTION_IDS } from "@/constants/navigation";
 import { useHeaderScroll } from "@/hooks/useHeaderScroll";
 import { useScrollToSection } from "@/hooks/useScrollToSection";
 import { cn } from "@/lib/cn";
@@ -103,9 +103,10 @@ export function Header() {
         </nav>
 
         <div className="flex shrink-0 items-center justify-end gap-2 lg:justify-self-end">
-          <button
-            type="button"
-            onClick={() => navigateToSection(SECTION_IDS.contact)}
+          <a
+            href={JOIN_US_FORM_URL}
+            target="_blank"
+            rel="noreferrer"
             className={cn(
               "hidden min-w-[7rem] justify-center px-4 py-2.5 text-sm shadow-sm transition-all duration-300 hover:-translate-y-px sm:inline-flex",
               scrolled
@@ -114,7 +115,7 @@ export function Header() {
             )}
           >
             {t.cta.join}
-          </button>
+          </a>
           <button
             type="button"
             className={cn(
@@ -178,13 +179,15 @@ export function Header() {
               <button type="button" onClick={toggleLang} className="btn-outline text-base font-semibold">
                 {lang === "en" ? "اردو" : "EN"}
               </button>
-              <button
-                type="button"
-                onClick={() => navigateToSection(SECTION_IDS.contact)}
+              <a
+                href={JOIN_US_FORM_URL}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setMenuOpen(false)}
                 className="btn-cta text-base"
               >
                 {t.cta.join}
-              </button>
+              </a>
             </div>
           </div>
         </div>

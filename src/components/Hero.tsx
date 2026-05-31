@@ -4,7 +4,7 @@ import Image from "next/image";
 import { MapPin } from "lucide-react";
 import { useEffect, useState } from "react";
 import { IMAGES } from "@/constants/images";
-import { SECTION_IDS } from "@/constants/navigation";
+import { JOIN_US_FORM_URL, SECTION_IDS } from "@/constants/navigation";
 import { useScrollToSection } from "@/hooks/useScrollToSection";
 import { cn } from "@/lib/cn";
 import { useLanguage } from "@/context/LanguageProvider";
@@ -81,13 +81,14 @@ export function Hero() {
         </p>
 
         <div className="mt-8 flex flex-wrap gap-3 sm:mt-10">
-          <button
-            type="button"
-            onClick={() => scrollToSection(SECTION_IDS.contact)}
+          <a
+            href={JOIN_US_FORM_URL}
+            target="_blank"
+            rel="noreferrer"
             className="btn-cta text-sm sm:text-base"
           >
             {t.cta.join}
-          </button>
+          </a>
           <button
             type="button"
             onClick={() => scrollToSection(SECTION_IDS.contact)}

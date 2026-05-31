@@ -12,3 +12,6 @@ export const SECTION_IDS = {
   awareness: "awareness",
   contact: "contact",
 } as const;
+
+export const JOIN_US_FORM_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLScmKyTfY3oCA069IjnZRS-mL_RfHfXpHA2HfKkIoLAF0lw4Tg/viewform";
