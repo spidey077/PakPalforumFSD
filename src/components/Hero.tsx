@@ -34,7 +34,7 @@ export function Hero() {
     <section
       id={SECTION_IDS.hero}
       ref={ref}
-      className="relative flex h-[52svh] flex-col justify-end overflow-hidden sm:h-[100dvh]"
+      className="relative flex h-[52svh] flex-col justify-end overflow-hidden pt-[3.75rem] sm:h-[100dvh] sm:pt-0"
     >
       <div className="absolute inset-0 overflow-hidden" aria-hidden>
         {IMAGES.heroSlides.map((src, index) => (

@@ -145,6 +145,7 @@ export function EditorialSplitLayout({ domain }: LayoutProps) {
                 src={domain.image}
                 alt={domain.imageAlt}
                 className="block max-w-full h-auto object-contain bg-[var(--color-bg)]"
+                loading="lazy"
               />
               <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/70 via-transparent to-transparent" />
             </div>
@@ -169,6 +170,7 @@ export function CinematicLayout({ domain }: LayoutProps) {
           alt={domain.imageAlt}
           fill
           className="object-cover object-center scale-105"
+          loading="lazy"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/75 to-black/50" />
@@ -220,6 +222,7 @@ export function HeroCardsLayout({ domain }: LayoutProps) {
             alt={domain.imageAlt}
             fill
             className="object-cover"
+            loading="lazy"
             sizes="100vw"
           />
         ) : (
@@ -270,11 +273,12 @@ export function TimelineLayout({ domain }: LayoutProps) {
           <RevealItem className="mb-8 flex justify-center">
             <div className="inline-block overflow-hidden rounded-3xl border-2 border-[var(--color-accent)]/20 shadow-lg bg-[var(--color-surface)]">
               <img
-                src={domain.image}
-                alt={domain.imageAlt}
-                className="block w-full h-auto max-h-[42rem] object-contain"
-                style={{ display: "block" }}
-              />
+                  src={domain.image}
+                  alt={domain.imageAlt}
+                  className="block w-full h-auto max-h-[42rem] object-contain"
+                  style={{ display: "block" }}
+                  loading="lazy"
+                />
             </div>
           </RevealItem>
         )}
@@ -452,6 +456,7 @@ export function ManifestoLayout({ domain }: LayoutProps) {
                 alt={domain.imageAlt}
                 fill
                 className="object-cover grayscale-[30%] contrast-110"
+                loading="lazy"
                 sizes="(max-width: 1024px) 100vw, 40vw"
               />
               <div className="absolute inset-0 bg-[var(--color-label-red)]/15 mix-blend-multiply" />

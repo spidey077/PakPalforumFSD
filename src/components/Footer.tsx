@@ -37,6 +37,7 @@ export function Footer() {
                   height={23}
                   className="object-contain"
                   style={{ width: "auto", height: "23px" }}
+                  loading="lazy"
                 />
               </div>
               <div>
