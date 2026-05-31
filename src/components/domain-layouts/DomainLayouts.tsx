@@ -3,6 +3,7 @@
 import Image from "next/image";
 import type { DomainContent } from "@/data/domains";
 import { cn } from "@/lib/cn";
+import { Heart, Share2 } from "lucide-react";
 import { InstagramPostSlider } from "@/components/ui/InstagramPostSlider";
 import { SectionHeading } from "@/components/SectionHeading";
 
