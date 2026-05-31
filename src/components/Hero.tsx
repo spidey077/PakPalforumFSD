@@ -21,6 +21,7 @@ export function Hero() {
   // Use a single static hero text for all background slides
   const staticTagline = "Stand for Al-Aqsa and Palestine";
   const staticSubtext = "Join students, volunteers, and organisers across Faisalabad.";
+  const visibleSlides = isMobile ? IMAGES.heroSlides.filter((_, i) => i !== 1) : IMAGES.heroSlides;
 
   useEffect(() => {
     // detect mobile using the same breakpoint as Tailwind's `sm` (max-width: 639px)
@@ -38,11 +39,6 @@ export function Hero() {
   }, []);
 
   useEffect(() => {
-    // choose slides based on viewport (exclude second slide on mobile)
-    const visibleSlides = isMobile
-      ? IMAGES.heroSlides.filter((_, i) => i !== 1)
-      : IMAGES.heroSlides;
-
     // reset active slide when slide set changes
     setActiveSlide(0);
 
@@ -58,10 +54,8 @@ export function Hero() {
       ref={ref}
       className="relative flex h-screen flex-col justify-center overflow-hidden sm:h-[100dvh] sm:justify-end"
     >
-        <div className="absolute inset-0 overflow-hidden" aria-hidden>
-        {(
-          isMobile ? IMAGES.heroSlides.filter((_, i) => i !== 1) : IMAGES.heroSlides
-        ).map((src, index) => (
+      <div className="absolute inset-0 overflow-hidden" aria-hidden>
+        {visibleSlides.map((src, index) => (
           <div
             key={src}
             className={cn(
@@ -135,7 +129,7 @@ export function Hero() {
         </div>
 
         <div className="mt-10 flex gap-2" role="tablist" aria-label="Hero slides">
-          {t.heroSlides.map((_, index) => (
+          {visibleSlides.map((_, index) => (
             <button
               key={`slide-${index}`}
               type="button"
