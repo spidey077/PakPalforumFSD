@@ -17,7 +17,9 @@ export function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
   const scrollToSection = useScrollToSection();
   const { ref, isVisible } = useRevealOnScroll<HTMLElement>({ threshold: 0.08 });
-  const slide = t.heroSlides[activeSlide];
+  // Use a single static hero text for all background slides
+  const staticTagline = "Stand for Al-Aqsa and Palestine";
+  const staticSubtext = "Join students, volunteers, and organisers across Faisalabad.";
 
   useEffect(() => {
     setActiveSlide(0);
@@ -62,7 +64,7 @@ export function Hero() {
 
       <div
         className={cn(
-          "hero-content wrap relative z-10 min-w-0 pb-[min(14vh,5.5rem)] pt-28 sm:pb-[20vh] sm:pt-32 lg:pt-44",
+          "hero-content hero-mobile-content wrap relative z-10 min-w-0 pb-[min(14vh,5.5rem)] pt-28 sm:pb-[20vh] sm:pt-32 lg:pt-44",
           "reveal-section",
           isVisible && "reveal-section--visible",
           "reveal-section--hero",
@@ -86,10 +88,10 @@ export function Hero() {
         </div>
 
         <h1 className="font-display max-w-4xl text-balance text-3xl font-bold leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
-          {slide.tagline}
+          {staticTagline}
         </h1>
         <p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-white/92 sm:text-xl lg:text-2xl">
-          {slide.subtext}
+          {staticSubtext}
         </p>
 
         <div className="mt-8 flex flex-wrap gap-3 sm:mt-10">

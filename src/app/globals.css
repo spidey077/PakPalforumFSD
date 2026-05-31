@@ -294,3 +294,13 @@ body {
     transform: none !important;
   }
 }
+
+/* Mobile-specific hero content override
+   Keeps hero text well below the sticky header on small screens.
+   Tweak the padding value as needed (large value to ensure full visibility).
+*/
+@media (max-width: 639px) {
+  .hero-mobile-content {
+    padding-top: 7.5rem; /* ~120px - pushes content well below the navbar */
+  }
+}
