@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useCallback, useState, type MouseEvent } from "react";
-import { ExternalAnchor } from "@/components/ui/ExternalAnchor";
 import { IMAGES } from "@/constants/images";
 import { NAV_ITEMS, SECTION_IDS } from "@/constants/navigation";
 import { useHeaderScroll } from "@/hooks/useHeaderScroll";
@@ -13,10 +12,10 @@ import { cn } from "@/lib/cn";
 import { useLanguage } from "@/context/LanguageProvider";
 
 const desktopNavButtonClass =
-  "inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-transparent px-4 py-2 text-sm font-semibold leading-none transition-all duration-300 hover:-translate-y-px hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]";
+  "group relative inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-transparent px-4 py-2 text-sm font-semibold leading-none transition-all duration-300 ease-out will-change-transform hover:-translate-y-0.5 hover:scale-[1.02]";
 
 const mobileNavButtonClass =
-  "rounded-xl border border-[var(--color-border)] bg-white/[0.03] px-3 py-3.5 text-left text-base font-semibold text-[var(--color-text)] transition duration-300 hover:-translate-y-px hover:border-[var(--color-accent)] hover:bg-white/[0.06]";
+  "rounded-xl border border-[var(--color-border)] bg-white/[0.03] px-3 py-3.5 text-left text-base font-semibold text-[var(--color-text)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-[var(--color-accent)] hover:bg-[var(--color-accent)]/8 hover:text-[var(--color-accent)] hover:shadow-[0_10px_24px_rgba(0,0,0,0.12)]";
 
 export function Header() {
   const { t, lang, toggleLang, dir } = useLanguage();
@@ -51,7 +50,7 @@ export function Header() {
     >
       <div
         className={cn(
-          "grid min-h-[3.5rem] w-full items-center gap-y-3 px-3 py-2 transition-all duration-500 sm:px-4 lg:grid-cols-[minmax(15rem,1.1fr)_minmax(0,2.5fr)_minmax(13rem,1fr)] lg:gap-x-8 lg:px-6 lg:py-3 xl:grid-cols-[minmax(16rem,1fr)_minmax(0,2.8fr)_minmax(13.5rem,1fr)] xl:gap-x-12 xl:px-8",
+          "flex min-h-[3.5rem] w-full items-center justify-between gap-3 px-3 py-2 transition-all duration-500 sm:px-4 lg:grid lg:grid-cols-[minmax(15rem,1.1fr)_minmax(0,2.5fr)_minmax(13rem,1fr)] lg:gap-x-8 lg:px-6 lg:py-3 xl:grid-cols-[minmax(16rem,1fr)_minmax(0,2.8fr)_minmax(13.5rem,1fr)] xl:gap-x-12 xl:px-8",
         )}
       >
         <Link
@@ -93,29 +92,29 @@ export function Header() {
               onClick={() => navigateToSection(id)}
               className={cn(
                 desktopNavButtonClass,
-                scrolled
-                  ? "text-[var(--color-text)] hover:bg-white/[0.04]"
-                  : "text-white hover:bg-white/10",
+                scrolled ? "text-[var(--color-text)] hover:bg-white/[0.04]" : "text-white hover:bg-white/10",
+                "hover:text-white",
               )}
             >
+              <span className="absolute inset-x-4 bottom-2 h-px origin-left scale-x-0 bg-current transition-transform duration-300 ease-out group-hover:scale-x-100" />
               {t.nav[key]}
             </button>
           ))}
         </nav>
 
         <div className="flex shrink-0 items-center justify-end gap-2 lg:justify-self-end">
-          <ExternalAnchor
-            href={t.contact.volunteer.formUrl}
+          <button
+            type="button"
+            onClick={() => navigateToSection(SECTION_IDS.contact)}
             className={cn(
               "hidden min-w-[7rem] justify-center px-4 py-2.5 text-sm shadow-sm transition-all duration-300 hover:-translate-y-px sm:inline-flex",
               scrolled
                 ? "border-[var(--color-label-red)] bg-[var(--color-label-red)] text-white hover:bg-[var(--color-cta)] hover:border-[var(--color-cta)]"
                 : "border-[var(--color-label-red)] bg-[var(--color-label-red)] text-white shadow-[0_10px_24px_rgba(255,31,34,0.28)] hover:bg-[var(--color-cta)] hover:border-[var(--color-cta)]",
             )}
-            showIcon={false}
           >
             {t.cta.join}
-          </ExternalAnchor>
+          </button>
           <button
             type="button"
             className={cn(
@@ -179,9 +178,13 @@ export function Header() {
               <button type="button" onClick={toggleLang} className="btn-outline text-base font-semibold">
                 {lang === "en" ? "اردو" : "EN"}
               </button>
-              <ExternalAnchor href={t.contact.volunteer.formUrl} className="btn-cta text-base" showIcon={false}>
+              <button
+                type="button"
+                onClick={() => navigateToSection(SECTION_IDS.contact)}
+                className="btn-cta text-base"
+              >
                 {t.cta.join}
-              </ExternalAnchor>
+              </button>
             </div>
           </div>
         </div>
