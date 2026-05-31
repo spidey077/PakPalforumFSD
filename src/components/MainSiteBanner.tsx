@@ -8,7 +8,7 @@ export function MainSiteBanner() {
   const { t } = useLanguage();
 
   return (
-    <section className="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
+    <section className="hidden sm:block border-b border-[var(--color-border)] bg-[var(--color-surface)]">
       <div className="wrap flex flex-col items-center justify-between gap-4 py-4 sm:flex-row sm:py-5">
         <RevealItem className="text-center sm:text-left">
           <p className="text-xs font-semibold uppercase tracking-wider text-[var(--color-accent)]">
