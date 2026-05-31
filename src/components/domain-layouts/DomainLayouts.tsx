@@ -1,16 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import {
-  BookOpen,
-  Heart,
-  Megaphone,
-  Share2,
-  ShoppingBag,
-  GraduationCap,
-  HandHeart,
-  Users,
-} from "lucide-react";
 import type { DomainContent } from "@/data/domains";
 import { cn } from "@/lib/cn";
 import { InstagramPostSlider } from "@/components/ui/InstagramPostSlider";
@@ -59,18 +49,13 @@ export function ReliefLayout({ domain }: LayoutProps) {
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-8">
           <div className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 sm:p-8">
-            <div className="flex items-start gap-4">
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--color-label-red)]/15 text-[var(--color-label-red)]">
-                <HandHeart className="h-6 w-6" aria-hidden />
-              </span>
-              <div className="min-w-0">
-                <p className="font-display text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)]">
-                  Relief workflow
-                </p>
-                <p className="mt-2 text-lg font-semibold leading-snug text-[var(--color-text)] sm:text-xl">
-                  {first}
-                </p>
-              </div>
+            <div className="min-w-0">
+              <p className="font-display text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)]">
+                Relief workflow
+              </p>
+              <p className="mt-2 text-lg font-semibold leading-snug text-[var(--color-text)] sm:text-xl">
+                {first}
+              </p>
             </div>
 
             <div className="mt-8 space-y-3">
@@ -139,10 +124,6 @@ export function EditorialSplitLayout({ domain }: LayoutProps) {
                   key={item}
                   className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-card"
                 >
-                  <BookOpen
-                    className="mb-2 h-4 w-4 text-[var(--color-accent)]"
-                    aria-hidden
-                  />
                   <p className="text-sm leading-relaxed text-[var(--color-text-muted)]">{item}</p>
                   <span className="mt-2 block text-[10px] font-semibold uppercase tracking-widest text-[var(--color-accent)]/70">
                     {String(i + 1).padStart(2, "0")}
@@ -206,7 +187,6 @@ export function CinematicLayout({ domain }: LayoutProps) {
                 i === 0 && "sm:col-span-2 lg:col-span-1 lg:row-span-1",
               )}
             >
-              <Megaphone className="mb-3 h-5 w-5 text-[var(--color-label-red)]" aria-hidden />
               <p className="text-sm leading-relaxed text-white/85 sm:text-base">{item}</p>
             </div>
           ))}
@@ -301,7 +281,6 @@ export function TimelineLayout({ domain }: LayoutProps) {
                 {i + 1}
               </span>
               <div className="min-w-0 flex-1 rounded-xl border border-[var(--color-border-soft)] bg-[var(--color-surface)] px-4 py-3 sm:px-5 sm:py-4">
-                <HandHeart className="mb-2 h-4 w-4 text-[var(--color-accent)]" aria-hidden />
                 <p className="text-sm leading-relaxed text-[var(--color-text-muted)] sm:text-base">
                   {item}
                 </p>
@@ -355,8 +334,6 @@ export function SocialFeedLayout({ domain }: LayoutProps) {
 /** 06 — Youth activation grid (no hero image) */
 export function BentoLayout({ domain }: LayoutProps) {
   const [featured, ...rest] = domain.highlights;
-  const cardIcons = [GraduationCap, Users, BookOpen, GraduationCap] as const;
-
   return (
     <section id={domain.id} className="bg-[var(--color-bg)] py-16 sm:py-24">
       <div className="wrap">
@@ -369,25 +346,19 @@ export function BentoLayout({ domain }: LayoutProps) {
 
         {featured && (
           <div className="mt-10 rounded-2xl border border-[var(--color-accent)]/35 bg-gradient-to-br from-[var(--color-accent)]/15 via-[var(--color-surface)] to-[var(--color-bg)] p-6 sm:p-8">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
-              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[var(--color-accent)]/20 text-[var(--color-accent)]">
-                <GraduationCap className="h-7 w-7" aria-hidden />
-              </span>
-              <div className="min-w-0">
-                <p className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
-                  Youth-led · Faisalabad
-                </p>
-                <p className="mt-2 text-lg font-semibold leading-snug text-[var(--color-text)] sm:text-xl">
-                  {featured}
-                </p>
-              </div>
+            <div className="min-w-0">
+              <p className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
+                Youth-led · Faisalabad
+              </p>
+              <p className="mt-2 text-lg font-semibold leading-snug text-[var(--color-text)] sm:text-xl">
+                {featured}
+              </p>
             </div>
           </div>
         )}
 
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           {rest.map((item, i) => {
-            const Icon = cardIcons[i] ?? GraduationCap;
             return (
               <div
                 key={item}
@@ -401,7 +372,6 @@ export function BentoLayout({ domain }: LayoutProps) {
                   {String(i + 2).padStart(2, "0")}
                 </span>
                 <div className="min-w-0 flex-1">
-                  <Icon className="mb-2 h-4 w-4 text-[var(--color-accent)]" aria-hidden />
                   <p className="text-sm leading-relaxed text-[var(--color-text)] sm:text-base">
                     {item}
                   </p>
@@ -443,12 +413,11 @@ export function ManifestoLayout({ domain }: LayoutProps) {
                   key={item}
                   className="border-l-4 border-[var(--color-label-red)] py-4 pl-5 transition hover:border-[var(--color-accent)] hover:bg-white/[0.02]"
                 >
-                  <div className="mb-1 flex items-center gap-2">
-                    <ShoppingBag className="h-4 w-4 text-[var(--color-label-red)]" aria-hidden />
-                    <span className="font-display text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-label-red)]">
-                      Action {i + 1}
-                    </span>
-                  </div>
+                    <div className="mb-1">
+                      <span className="font-display text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-label-red)]">
+                        Action {i + 1}
+                      </span>
+                    </div>
                   <p className="text-base font-medium leading-relaxed text-[var(--color-text)] sm:text-lg">
                     {item}
                   </p>

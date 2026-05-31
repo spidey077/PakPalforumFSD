@@ -1,29 +1,10 @@
 "use client";
 
 import {
-  BookOpen,
-  GraduationCap,
-  HandHeart,
-  Heart,
-  Megaphone,
-  Share2,
-  ShoppingBag,
-  Users,
-  type LucideIcon,
 } from "lucide-react";
 import type { DomainId } from "@/data/domains";
 import { useScrollToSection } from "@/hooks/useScrollToSection";
 import { useLanguage } from "@/context/LanguageProvider";
-
-const DOMAIN_ICONS: Record<DomainId, LucideIcon> = {
-  awareness: BookOpen,
-  protests: Megaphone,
-  relief: Heart,
-  adoption: HandHeart,
-  social: Share2,
-  students: GraduationCap,
-  boycott: ShoppingBag,
-};
 
 export function DomainsOverview() {
   const { lang, t } = useLanguage();
@@ -61,30 +42,21 @@ export function DomainsOverview() {
         </div>
 
         <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {t.domains.map((domain) => {
-            const Icon = DOMAIN_ICONS[domain.id];
-            return (
-              <button
-                key={domain.id}
-                type="button"
-                onClick={() => scrollToSection(domain.id)}
-                className="group flex items-start gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4 text-left transition hover:border-[var(--color-accent)] hover:bg-[var(--color-card)]"
-              >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[var(--color-accent)]/15 text-[var(--color-accent)]">
-                  <Icon className="h-5 w-5" aria-hidden />
-                </span>
-                <span className="min-w-0 text-sm font-semibold leading-snug text-[var(--color-text)] group-hover:text-[var(--color-accent)]">
-                  {domain.navLabel}
-                </span>
-              </button>
-            );
-          })}
+          {t.domains.map((domain) => (
+            <button
+              key={domain.id}
+              type="button"
+              onClick={() => scrollToSection(domain.id)}
+              className="group rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4 text-left transition hover:border-[var(--color-accent)] hover:bg-[var(--color-card)]"
+            >
+              <span className="block text-sm font-semibold leading-snug text-[var(--color-text)] transition group-hover:text-[var(--color-accent)]">
+                {domain.navLabel}
+              </span>
+            </button>
+          ))}
         </div>
 
-        <p className="mt-6 flex items-center justify-center gap-2 text-center text-xs text-[var(--color-text-muted)]">
-          <Users className="h-4 w-4 text-[var(--color-accent)]" aria-hidden />
-          {overview.youthNote}
-        </p>
+        <p className="mt-6 text-center text-xs text-[var(--color-text-muted)]">{overview.youthNote}</p>
       </div>
     </section>
   );

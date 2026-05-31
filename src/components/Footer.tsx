@@ -33,9 +33,9 @@ export function Footer() {
                 <Image
                   src={IMAGES.logo}
                   alt={t.siteName}
-                  width={88}
-                  height={32}
-                  className="h-8 w-auto object-contain"
+                  width={64}
+                  height={23}
+                  className="object-contain"
                 />
               </div>
               <div>
