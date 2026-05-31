@@ -6,6 +6,7 @@ import { cn } from "@/lib/cn";
 import { Heart, Share2 } from "lucide-react";
 import { InstagramPostSlider } from "@/components/ui/InstagramPostSlider";
 import { SectionHeading } from "@/components/SectionHeading";
+import { RevealItem } from "@/components/ui/RevealItem";
 
 type LayoutProps = {
   domain: DomainContent;
@@ -38,7 +39,7 @@ export function ReliefLayout({ domain }: LayoutProps) {
       />
 
       <div className="wrap relative">
-        <div className="max-w-3xl">
+        <RevealItem className="max-w-3xl">
           <SectionHeading
             badge={domain.badge}
             title={domain.title}
@@ -46,10 +47,10 @@ export function ReliefLayout({ domain }: LayoutProps) {
             badgeColor="red"
             align="left"
           />
-        </div>
+        </RevealItem>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-8">
-          <div className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 sm:p-8">
+          <RevealItem delayMs={120} className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 sm:p-8">
             <div className="min-w-0">
               <p className="font-display text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)]">
                 Relief workflow
@@ -65,8 +66,9 @@ export function ReliefLayout({ domain }: LayoutProps) {
                 { label: "Route", value: "Verified national relief pipeline" },
                 { label: "Deliver", value: "Partner-led on-ground distribution" },
               ].map((item, index) => (
-                <div
+                <RevealItem
                   key={item.label}
+                  delayMs={180 + index * 70}
                   className="flex items-center gap-4 rounded-2xl border border-[var(--color-border-soft)] bg-[var(--color-bg)]/55 p-4"
                 >
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--color-label-red)]/12 text-sm font-bold text-[var(--color-label-red)]">
@@ -78,15 +80,16 @@ export function ReliefLayout({ domain }: LayoutProps) {
                     </p>
                     <p className="mt-1 text-sm font-medium text-[var(--color-text)]">{item.value}</p>
                   </div>
-                </div>
+                </RevealItem>
               ))}
             </div>
-          </div>
+          </RevealItem>
 
           <div className="grid gap-4 sm:grid-cols-2">
             {[second, ...rest].map((item, i) => (
-              <div
+              <RevealItem
                 key={item}
+                delayMs={180 + i * 70}
                 className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] p-5 shadow-card transition hover:border-[var(--color-accent)]/55 hover:bg-[var(--color-bg-elevated)]"
               >
                 <div className="mb-3 flex items-center gap-2">
@@ -97,7 +100,7 @@ export function ReliefLayout({ domain }: LayoutProps) {
                 <p className="text-sm leading-relaxed text-[var(--color-text-muted)] sm:text-base">
                   {item}
                 </p>
-              </div>
+              </RevealItem>
             ))}
           </div>
         </div>
@@ -113,27 +116,30 @@ export function EditorialSplitLayout({ domain }: LayoutProps) {
       <div className="wrap wrap--impact-wide">
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-10 xl:gap-14">
           <div className="lg:pt-4">
-            <SectionHeading
-              badge={domain.badge}
-              title={domain.title}
-              intro={domain.intro}
-              align="left"
-            />
+            <RevealItem className="max-w-3xl">
+              <SectionHeading
+                badge={domain.badge}
+                title={domain.title}
+                intro={domain.intro}
+                align="left"
+              />
+            </RevealItem>
             <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
               {domain.highlights.map((item, i) => (
-                <div
+                <RevealItem
                   key={item}
+                  delayMs={120 + i * 70}
                   className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-card"
                 >
                   <p className="text-sm leading-relaxed text-[var(--color-text-muted)]">{item}</p>
                   <span className="mt-2 block text-[10px] font-semibold uppercase tracking-widest text-[var(--color-accent)]/70">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                </div>
+                </RevealItem>
               ))}
             </div>
           </div>
-          <div className="relative">
+          <RevealItem delayMs={180} className="relative">
             <div className="relative mx-auto inline-block overflow-hidden rounded-2xl border-2 border-[var(--color-accent)]/30 shadow-[0_24px_80px_rgba(255,71,74,0.15)]">
               <img
                 src={domain.image}
@@ -146,7 +152,7 @@ export function EditorialSplitLayout({ domain }: LayoutProps) {
               className="pointer-events-none absolute -left-4 top-8 hidden h-24 w-24 rounded-full border border-[var(--color-accent)]/20 lg:block"
               aria-hidden
             />
-          </div>
+          </RevealItem>
         </div>
       </div>
     </section>
@@ -169,7 +175,7 @@ export function CinematicLayout({ domain }: LayoutProps) {
         <div className="absolute inset-0 bg-[var(--color-label-red)]/10 mix-blend-multiply" />
       </div>
       <div className="wrap wrap--impact-wide relative z-10">
-        <div className="max-w-3xl">
+        <RevealItem className="max-w-3xl">
           <SectionHeading
             badge={domain.badge}
             title={domain.title}
@@ -178,18 +184,19 @@ export function CinematicLayout({ domain }: LayoutProps) {
             dark
             align="left"
           />
-        </div>
+        </RevealItem>
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3">
           {domain.highlights.map((item, i) => (
-            <div
+            <RevealItem
               key={item}
+              delayMs={120 + i * 80}
               className={cn(
                 "rounded-xl border border-white/15 bg-black/45 p-5 backdrop-blur-md",
                 i === 0 && "sm:col-span-2 lg:col-span-1 lg:row-span-1",
               )}
             >
               <p className="text-sm leading-relaxed text-white/85 sm:text-base">{item}</p>
-            </div>
+            </RevealItem>
           ))}
         </div>
       </div>
@@ -221,7 +228,7 @@ export function HeroCardsLayout({ domain }: LayoutProps) {
         <div className="absolute inset-0 bg-gradient-to-b from-black/72 via-black/58 to-[var(--color-bg)]/96" />
       </div>
       <div className="wrap relative py-16 sm:py-20 lg:py-24">
-        <div className="max-w-3xl">
+        <RevealItem className="max-w-3xl">
           <SectionHeading
             badge={domain.badge}
             title={domain.title}
@@ -230,11 +237,12 @@ export function HeroCardsLayout({ domain }: LayoutProps) {
             dark
             align="left"
           />
-        </div>
+        </RevealItem>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {domain.highlights.map((item, i) => (
-            <div
+            <RevealItem
               key={item}
+              delayMs={120 + i * 80}
               className={cn(
                 "rounded-2xl border border-white/15 bg-black/35 p-5 backdrop-blur-md transition hover:border-[var(--color-accent)]/50 hover:bg-black/45",
                 i === domain.highlights.length - 1 && "sm:col-span-2 lg:col-span-1",
@@ -245,7 +253,7 @@ export function HeroCardsLayout({ domain }: LayoutProps) {
                 aria-hidden
               />
               <p className="text-sm leading-relaxed text-white/88 sm:text-base">{item}</p>
-            </div>
+            </RevealItem>
           ))}
         </div>
       </div>
@@ -259,7 +267,7 @@ export function TimelineLayout({ domain }: LayoutProps) {
     <section id={domain.id} className="bg-[var(--color-bg)] py-16 sm:py-24">
       <div className="wrap max-w-3xl">
         {domain.image && (
-          <div className="mb-8 flex justify-center">
+          <RevealItem className="mb-8 flex justify-center">
             <div className="inline-block overflow-hidden rounded-3xl border-2 border-[var(--color-accent)]/20 shadow-lg bg-[var(--color-surface)]">
               <img
                 src={domain.image}
@@ -268,16 +276,18 @@ export function TimelineLayout({ domain }: LayoutProps) {
                 style={{ display: "block" }}
               />
             </div>
-          </div>
+          </RevealItem>
         )}
-        <SectionHeading badge={domain.badge} title={domain.title} intro={domain.intro} />
+        <RevealItem>
+          <SectionHeading badge={domain.badge} title={domain.title} intro={domain.intro} />
+        </RevealItem>
         <ol className="relative mt-10 space-y-0 sm:mt-12">
           <div
             className="absolute bottom-4 left-[1.125rem] top-4 w-px bg-gradient-to-b from-[var(--color-accent)] via-[var(--color-border)] to-transparent sm:left-5"
             aria-hidden
           />
           {domain.highlights.map((item, i) => (
-            <li key={item} className="relative flex gap-4 pb-8 last:pb-0 sm:gap-6">
+            <RevealItem key={item} delayMs={100 + i * 80} className="relative flex gap-4 pb-8 last:pb-0 sm:gap-6">
               <span className="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-[var(--color-accent)] bg-[var(--color-bg)] text-xs font-bold text-[var(--color-accent)] sm:h-10 sm:w-10">
                 {i + 1}
               </span>
@@ -286,7 +296,7 @@ export function TimelineLayout({ domain }: LayoutProps) {
                   {item}
                 </p>
               </div>
-            </li>
+            </RevealItem>
           ))}
         </ol>
       </div>
@@ -310,21 +320,24 @@ export function SocialFeedLayout({ domain }: LayoutProps) {
         aria-hidden
       />
       <div className="wrap relative">
-        <SectionHeading badge={domain.badge} title={domain.title} intro={domain.intro} />
+        <RevealItem>
+          <SectionHeading badge={domain.badge} title={domain.title} intro={domain.intro} />
+        </RevealItem>
 
-        <div className="mt-10">
+        <RevealItem delayMs={120} className="mt-10">
           <InstagramPostSlider />
-        </div>
+        </RevealItem>
 
         <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {domain.highlights.map((item) => (
-            <li
+            <RevealItem
               key={item}
+              delayMs={120}
               className="flex gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-card)]/80 p-4"
             >
               <Share2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-accent)]" aria-hidden />
               <p className="text-sm leading-relaxed text-[var(--color-text-muted)]">{item}</p>
-            </li>
+            </RevealItem>
           ))}
         </ul>
       </div>
@@ -338,15 +351,17 @@ export function BentoLayout({ domain }: LayoutProps) {
   return (
     <section id={domain.id} className="bg-[var(--color-bg)] py-16 sm:py-24">
       <div className="wrap">
-        <SectionHeading
-          badge={domain.badge}
-          title={domain.title}
-          intro={domain.intro}
-          align="left"
-        />
+        <RevealItem>
+          <SectionHeading
+            badge={domain.badge}
+            title={domain.title}
+            intro={domain.intro}
+            align="left"
+          />
+        </RevealItem>
 
         {featured && (
-          <div className="mt-10 rounded-2xl border border-[var(--color-accent)]/35 bg-gradient-to-br from-[var(--color-accent)]/15 via-[var(--color-surface)] to-[var(--color-bg)] p-6 sm:p-8">
+          <RevealItem delayMs={120} className="mt-10 rounded-2xl border border-[var(--color-accent)]/35 bg-gradient-to-br from-[var(--color-accent)]/15 via-[var(--color-surface)] to-[var(--color-bg)] p-6 sm:p-8">
             <div className="min-w-0">
               <p className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
                 Youth-led · Faisalabad
@@ -355,14 +370,15 @@ export function BentoLayout({ domain }: LayoutProps) {
                 {featured}
               </p>
             </div>
-          </div>
+          </RevealItem>
         )}
 
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           {rest.map((item, i) => {
             return (
-              <div
+              <RevealItem
                 key={item}
+                delayMs={120 + i * 70}
                 className={cn(
                   "flex gap-4 rounded-2xl border p-5 sm:p-6",
                   BENTO_ACCENTS[(i + 1) % BENTO_ACCENTS.length],
@@ -377,7 +393,7 @@ export function BentoLayout({ domain }: LayoutProps) {
                     {item}
                   </p>
                 </div>
-              </div>
+              </RevealItem>
             );
           })}
         </div>
@@ -401,17 +417,20 @@ export function ManifestoLayout({ domain }: LayoutProps) {
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
           <div>
             <div className="mb-6 h-1 w-16 bg-[var(--color-label-red)]" aria-hidden />
-            <SectionHeading
-              badge={domain.badge}
-              title={domain.title}
-              intro={domain.intro}
-              badgeColor="red"
-              align="left"
-            />
+            <RevealItem>
+              <SectionHeading
+                badge={domain.badge}
+                title={domain.title}
+                intro={domain.intro}
+                badgeColor="red"
+                align="left"
+              />
+            </RevealItem>
             <ul className="mt-10 space-y-0">
               {domain.highlights.map((item, i) => (
-                <li
+                <RevealItem
                   key={item}
+                  delayMs={100 + i * 80}
                   className="border-l-4 border-[var(--color-label-red)] py-4 pl-5 transition hover:border-[var(--color-accent)] hover:bg-white/[0.02]"
                 >
                     <div className="mb-1">
@@ -422,11 +441,11 @@ export function ManifestoLayout({ domain }: LayoutProps) {
                   <p className="text-base font-medium leading-relaxed text-[var(--color-text)] sm:text-lg">
                     {item}
                   </p>
-                </li>
+                </RevealItem>
               ))}
             </ul>
           </div>
-          <div className="relative">
+          <RevealItem delayMs={180} className="relative">
             <div className="relative aspect-[3/4] overflow-hidden rounded-none border-l-8 border-[var(--color-label-red)] shadow-[20px_20px_0_rgba(255,31,34,0.15)] sm:aspect-[4/5]">
               <Image
                 src={domain.image}
@@ -437,7 +456,7 @@ export function ManifestoLayout({ domain }: LayoutProps) {
               />
               <div className="absolute inset-0 bg-[var(--color-label-red)]/15 mix-blend-multiply" />
             </div>
-          </div>
+          </RevealItem>
         </div>
       </div>
     </section>

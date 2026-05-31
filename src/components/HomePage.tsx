@@ -13,7 +13,7 @@ export function HomePage() {
   const { dir, lang, t } = useLanguage();
 
   return (
-    <div dir={dir} lang={lang}>
+    <div dir={dir} lang={lang} className="page-enter">
       <Header />
       <main>
         <Hero />

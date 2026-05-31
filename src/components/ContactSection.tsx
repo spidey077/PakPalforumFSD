@@ -6,6 +6,7 @@ import { useLanguage } from "@/context/LanguageProvider";
 import { ExternalAnchor } from "@/components/ui/ExternalAnchor";
 import { SocialLinkChips } from "@/components/ui/SocialLinkChips";
 import { SectionHeading } from "./SectionHeading";
+import { RevealItem } from "@/components/ui/RevealItem";
 
 export function ContactSection() {
   const { t } = useLanguage();
@@ -13,18 +14,20 @@ export function ContactSection() {
   return (
     <section id={SECTION_IDS.contact} className="bg-[var(--color-bg)] py-16 sm:py-20 md:py-24">
       <div className="wrap">
-        <SectionHeading badge={t.nav.contact} title={t.contact.title} intro={t.contact.intro} />
+        <RevealItem>
+          <SectionHeading badge={t.nav.contact} title={t.contact.title} intro={t.contact.intro} />
+        </RevealItem>
 
-        <div className="mt-10 rounded-xl border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/5 p-5 sm:p-6">
+        <RevealItem delayMs={120} className="mt-10 rounded-xl border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/5 p-5 sm:p-6">
           <h3 className="font-semibold text-[var(--color-text)]">{t.mainSite.cardTitle}</h3>
           <p className="mt-2 text-sm text-[var(--color-text-muted)]">{t.mainSite.cardBody}</p>
           <ExternalAnchor href={t.mainSite.url} className="btn-cta mt-4 text-sm">
             {t.mainSite.cta}
           </ExternalAnchor>
-        </div>
+        </RevealItem>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <article className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+          <RevealItem delayMs={180} className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
             <h3 className="text-lg font-semibold text-[var(--color-text)]">
               {t.contact.donate.title}
             </h3>
@@ -44,10 +47,10 @@ export function ContactSection() {
                 {t.contact.donate.contactPhone}
               </a>
             </div>
-          </article>
+          </RevealItem>
 
           <div className="space-y-6">
-            <article className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+            <RevealItem delayMs={240} className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
               <p className="text-sm text-[var(--color-text-muted)]">{t.contact.chapterPhone.label}</p>
               <a
                 href={toTelHref(t.contact.chapterPhone.value)}
@@ -56,21 +59,21 @@ export function ContactSection() {
                 {t.contact.chapterPhone.value}
               </a>
               <p className="mt-2 text-xs text-[var(--color-text-muted)]">{t.chapterLocation}</p>
-            </article>
+            </RevealItem>
 
-            <article className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+            <RevealItem delayMs={300} className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
               <p className="mb-3 text-sm font-semibold text-[var(--color-text)]">
                 {t.contact.socialTitle}
               </p>
               <SocialLinkChips links={t.contact.socialFaisalabad} variant="chapter" />
-            </article>
+            </RevealItem>
 
-            <article className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+            <RevealItem delayMs={360} className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
               <p className="mb-3 text-sm font-semibold text-[var(--color-text-muted)]">
                 {t.contact.socialNationalTitle}
               </p>
               <SocialLinkChips links={t.contact.socialNational} variant="national" />
-            </article>
+            </RevealItem>
           </div>
         </div>
       </div>
