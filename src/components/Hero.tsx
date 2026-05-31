@@ -34,9 +34,9 @@ export function Hero() {
     <section
       id={SECTION_IDS.hero}
       ref={ref}
-      className="relative flex min-h-[52svh] flex-col justify-end overflow-hidden sm:min-h-[100dvh]"
+      className="relative flex h-[52svh] flex-col justify-end overflow-hidden sm:h-[100dvh]"
     >
-      <div className="absolute inset-0" aria-hidden>
+      <div className="absolute inset-0 overflow-hidden" aria-hidden>
         {IMAGES.heroSlides.map((src, index) => (
           <div
             key={src}
@@ -44,12 +44,13 @@ export function Hero() {
               "absolute inset-0 transition-opacity duration-1000",
               index === activeSlide ? "opacity-100" : "opacity-0",
             )}
+            style={{ willChange: "opacity" }}
           >
             <Image
               src={src}
               alt=""
               fill
-              className="object-cover"
+              className="w-full h-full object-cover"
               priority={index === 0}
               loading={index === 0 ? "eager" : "lazy"}
               sizes="100vw"

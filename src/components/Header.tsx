@@ -45,7 +45,7 @@ export function Header() {
         "sticky inset-x-0 top-0 z-50 transition-all duration-500 ease-out",
         scrolled
           ? "bg-[var(--color-bg)]/92 shadow-[0_12px_40px_rgba(0,0,0,0.28)] backdrop-blur-xl"
-          : "bg-gradient-to-b from-black/65 via-black/30 to-transparent",
+          : "bg-transparent shadow-none backdrop-blur-0",
       )}
     >
       <div
