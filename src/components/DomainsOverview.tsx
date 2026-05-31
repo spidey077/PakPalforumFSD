@@ -26,9 +26,9 @@ const DOMAIN_ICONS: Record<DomainId, LucideIcon> = {
 };
 
 export function DomainsOverview() {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
   const overview =
-    t.lang === "en"
+    lang === "en"
       ? {
           label: "Our work",
           title: "Seven ways Faisalabad acts for Palestine",

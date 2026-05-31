@@ -5,6 +5,7 @@ import { MapPin } from "lucide-react";
 import { useEffect, useState } from "react";
 import { IMAGES } from "@/constants/images";
 import { SECTION_IDS } from "@/constants/navigation";
+import { ExternalAnchor } from "@/components/ui/ExternalAnchor";
 import { useScrollToSection } from "@/hooks/useScrollToSection";
 import { cn } from "@/lib/cn";
 import { useLanguage } from "@/context/LanguageProvider";
@@ -81,13 +82,9 @@ export function Hero() {
         </p>
 
         <div className="mt-8 flex flex-wrap gap-3 sm:mt-10">
-          <button
-            type="button"
-            onClick={() => scrollToSection(SECTION_IDS.awareness)}
-            className="btn-cta text-sm sm:text-base"
-          >
+          <ExternalAnchor href={t.contact.volunteer.formUrl} className="btn-cta text-sm sm:text-base" showIcon={false}>
             {t.cta.join}
-          </button>
+          </ExternalAnchor>
           <button
             type="button"
             onClick={() => scrollToSection(SECTION_IDS.contact)}

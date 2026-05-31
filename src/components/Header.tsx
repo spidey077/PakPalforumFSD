@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useCallback, useState, type MouseEvent } from "react";
+import { ExternalAnchor } from "@/components/ui/ExternalAnchor";
 import { IMAGES } from "@/constants/images";
 import { NAV_ITEMS, SECTION_IDS } from "@/constants/navigation";
 import { useHeaderScroll } from "@/hooks/useHeaderScroll";
@@ -103,18 +104,18 @@ export function Header() {
         </nav>
 
         <div className="flex shrink-0 items-center justify-end gap-2 lg:justify-self-end">
-          <button
-            type="button"
-            onClick={() => navigateToSection(SECTION_IDS.contact)}
+          <ExternalAnchor
+            href={t.contact.volunteer.formUrl}
             className={cn(
               "hidden min-w-[7rem] justify-center px-4 py-2.5 text-sm shadow-sm transition-all duration-300 hover:-translate-y-px sm:inline-flex",
               scrolled
                 ? "border-[var(--color-label-red)] bg-[var(--color-label-red)] text-white hover:bg-[var(--color-cta)] hover:border-[var(--color-cta)]"
                 : "border-[var(--color-label-red)] bg-[var(--color-label-red)] text-white shadow-[0_10px_24px_rgba(255,31,34,0.28)] hover:bg-[var(--color-cta)] hover:border-[var(--color-cta)]",
             )}
+            showIcon={false}
           >
             {t.cta.join}
-          </button>
+          </ExternalAnchor>
           <button
             type="button"
             className={cn(
@@ -178,13 +179,9 @@ export function Header() {
               <button type="button" onClick={toggleLang} className="btn-outline text-base font-semibold">
                 {lang === "en" ? "اردو" : "EN"}
               </button>
-              <button
-                type="button"
-                onClick={() => navigateToSection(SECTION_IDS.contact)}
-                className="btn-cta text-base"
-              >
+              <ExternalAnchor href={t.contact.volunteer.formUrl} className="btn-cta text-base" showIcon={false}>
                 {t.cta.join}
-              </button>
+              </ExternalAnchor>
             </div>
           </div>
         </div>

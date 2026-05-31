@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/images/ppf logo transparent.webp", type: "image/webp" },
+      { url: "/images/PPF-logo-icon.webp", type: "image/webp" },
       { url: "/images/ppf logo transparent.png", type: "image/png" },
     ],
   },
