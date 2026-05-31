@@ -147,7 +147,7 @@ export function InstagramPostSlider({
         <button
           type="button"
           onClick={() => scroll("prev")}
-          className="absolute -left-1 top-1/2 z-10 hidden h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-bg)]/95 text-[var(--color-text)] shadow-md transition hover:border-[var(--color-accent)] sm:flex"
+          className="absolute -left-1 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-bg)]/95 text-[var(--color-text)] shadow-md transition hover:border-[var(--color-accent)]"
           aria-label={lang === "en" ? "Previous posts" : "پچھلی پوسٹس"}
         >
           <ChevronLeft className="h-5 w-5" aria-hidden />
@@ -155,7 +155,7 @@ export function InstagramPostSlider({
         <button
           type="button"
           onClick={() => scroll("next")}
-          className="absolute -right-1 top-1/2 z-10 hidden h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-bg)]/95 text-[var(--color-text)] shadow-md transition hover:border-[var(--color-accent)] sm:flex"
+          className="absolute -right-1 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-bg)]/95 text-[var(--color-text)] shadow-md transition hover:border-[var(--color-accent)]"
           aria-label={lang === "en" ? "Next posts" : "اگلی پوسٹس"}
         >
           <ChevronRight className="h-5 w-5" aria-hidden />
