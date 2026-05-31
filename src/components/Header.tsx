@@ -63,7 +63,8 @@ export function Header() {
             alt={t.siteName}
             width={120}
             height={40}
-            className="h-9 w-auto shrink-0 object-contain transition-transform duration-300 sm:h-10 hover:scale-[1.02]"
+            className="shrink-0 object-contain transition-transform duration-300 hover:scale-[1.02]"
+            style={{ width: "auto", height: "2.25rem" }}
             priority
           />
           <span

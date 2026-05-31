@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { DM_Sans, Outfit, Plus_Jakarta_Sans, Syne } from "next/font/google";
 import { HtmlLangDir } from "@/components/HtmlLangDir";
 import { LanguageProvider } from "@/context/LanguageProvider";
@@ -30,6 +30,8 @@ const outfit = Outfit({
   display: "swap",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+
 export const metadata: Metadata = {
   title: "Pak Palestine Forum — Faisalabad Chapter",
   description:
@@ -42,7 +44,7 @@ export const metadata: Metadata = {
     "Al-Aqsa",
     "Faisalabad activism",
   ],
-  themeColor: "#111111",
+  metadataBase: new URL(siteUrl),
   openGraph: {
     type: "website",
     title: "Pak Palestine Forum — Faisalabad Chapter",
@@ -56,6 +58,10 @@ export const metadata: Metadata = {
       { url: "/images/ppf logo transparent.png", type: "image/png" },
     ],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#111111",
 };
 
 export default function RootLayout({
