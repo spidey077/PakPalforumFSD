@@ -142,7 +142,7 @@ export function EditorialSplitLayout({ domain }: LayoutProps) {
           <RevealItem delayMs={180} className="relative">
             <div className="relative mx-auto inline-block overflow-hidden rounded-2xl border-2 border-[var(--color-accent)]/30 shadow-[0_24px_80px_rgba(255,71,74,0.15)]">
               <img
-                src={domain.image}
+                src={Array.isArray(domain.image) ? domain.image[0] : domain.image}
                 alt={domain.imageAlt}
                 className="block max-w-full h-auto object-contain bg-[var(--color-bg)]"
                 loading="lazy"
@@ -166,7 +166,7 @@ export function CinematicLayout({ domain }: LayoutProps) {
     <section id={domain.id} className="relative overflow-hidden py-20 sm:py-28 md:py-36">
       <div className="absolute inset-0 z-0">
         <Image
-          src={domain.image}
+          src={Array.isArray(domain.image) ? domain.image[0] : domain.image}
           alt={domain.imageAlt}
           fill
           className="object-cover object-center scale-105"
@@ -218,7 +218,7 @@ export function HeroCardsLayout({ domain }: LayoutProps) {
       <div className="absolute inset-0">
         {hasImage ? (
           <Image
-            src={domain.image}
+            src={Array.isArray(domain.image) ? domain.image[0] : domain.image}
             alt={domain.imageAlt}
             fill
             className="object-cover"
@@ -273,12 +273,12 @@ export function TimelineLayout({ domain }: LayoutProps) {
           <RevealItem className="mb-8 flex justify-center">
             <div className="inline-block overflow-hidden rounded-3xl border-2 border-[var(--color-accent)]/20 shadow-lg bg-[var(--color-surface)]">
               <img
-                  src={domain.image}
-                  alt={domain.imageAlt}
-                  className="block w-full h-auto max-h-[42rem] object-contain"
-                  style={{ display: "block" }}
-                  loading="lazy"
-                />
+                src={Array.isArray(domain.image) ? domain.image[0] : domain.image}
+                alt={domain.imageAlt}
+                className="block w-full h-auto max-h-[42rem] object-contain"
+                style={{ display: "block" }}
+                loading="lazy"
+              />
             </div>
           </RevealItem>
         )}
@@ -363,6 +363,31 @@ export function BentoLayout({ domain }: LayoutProps) {
             align="left"
           />
         </RevealItem>
+
+        {domain.image && (
+          <RevealItem delayMs={120} className="mt-6">
+            {(() => {
+              const images = (Array.isArray(domain.image) ? domain.image : [domain.image]).slice(0, 3);
+              return (
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  {images.map((src) => (
+                    <div
+                      key={src}
+                      className="relative overflow-hidden rounded-2xl border border-[var(--color-border)] shadow-sm h-64 sm:h-72 md:h-80"
+                    >
+                      <img
+                        src={src}
+                        alt={domain.imageAlt}
+                        loading="lazy"
+                        className="w-full h-full object-cover block transform-gpu transition-transform duration-300 hover:scale-110 hover:z-10"
+                      />
+                    </div>
+                  ))}
+                </div>
+              );
+            })()}
+          </RevealItem>
+        )}
 
         {featured && (
           <RevealItem delayMs={120} className="mt-10 rounded-2xl border border-[var(--color-accent)]/35 bg-gradient-to-br from-[var(--color-accent)]/15 via-[var(--color-surface)] to-[var(--color-bg)] p-6 sm:p-8">
@@ -452,7 +477,7 @@ export function ManifestoLayout({ domain }: LayoutProps) {
           <RevealItem delayMs={180} className="relative">
             <div className="relative aspect-[3/4] overflow-hidden rounded-none border-l-8 border-[var(--color-label-red)] shadow-[20px_20px_0_rgba(255,31,34,0.15)] sm:aspect-[4/5]">
               <Image
-                src={domain.image}
+                src={Array.isArray(domain.image) ? domain.image[0] : domain.image}
                 alt={domain.imageAlt}
                 fill
                 className="object-cover grayscale-[30%] contrast-110"

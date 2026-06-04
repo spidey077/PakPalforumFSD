@@ -14,7 +14,7 @@ export type DomainContent = {
   title: string;
   intro: string;
   highlights: string[];
-  image: string;
+  image: string | readonly string[];
   imageAlt: string;
   layout:
     | "editorial-split"
@@ -114,7 +114,7 @@ export const domainsEn: DomainContent[] = [
       "What happens on Faisalabad's streets should reach every screen the same day — our digital team turns protests, relief drives, and boycott pushes into content people actually share.",
     highlights: [
     ],
-    image: "/images/hero-3.webp",
+    image: "/images/hero-3.jfif",
     imageAlt: "PPF Faisalabad social media",
     layout: "social-feed",
   },
@@ -131,7 +131,12 @@ export const domainsEn: DomainContent[] = [
       "Madaris study circles — age-appropriate sessions so younger students learn before they lead",
       "A trained pipeline: today's stall volunteers become tomorrow's march leads and mentors",
     ],
-    image: "/images/team6.webp",
+    image: [
+      "/images/University Session.jfif",
+      "/images/University Session 2.jfif",
+      "/images/University Session 3.jfif",
+      "/images/Faisalabad Medical University.jfif",
+    ],
     imageAlt: "Student activation in Faisalabad",
     layout: "bento",
   },
@@ -148,7 +153,7 @@ export const domainsEn: DomainContent[] = [
       "Campus teams run week-long pushes when a franchise linked to occupation opens nearby",
       "Your weekly grocery run is a choice — we help the city spend without funding complicity",
     ],
-    image: "/images/hero-1.webp",
+    image: "/images/hero-1.jfif",
     imageAlt: "Boycott movement in Faisalabad",
     layout: "manifesto",
   },
@@ -231,7 +236,7 @@ export const domainsUr: DomainContent[] = [
       "فیصل آباد کی سڑکوں پر جو ہو وہ اسی دن ہر اسکرین تک — ڈیجیٹل ٹیم احتجاج، امداد اور بائیکاٹ کو ایسا مواد بناتی ہے جو لوگ واقعی شیئر کریں۔",
     highlights: [
     ],
-    image: "/images/hero-3.webp",
+    image: "/images/hero-3.jfif",
     imageAlt: "سوشل میڈیا فیصل آباد",
     layout: "social-feed",
   },
@@ -248,7 +253,12 @@ export const domainsUr: DomainContent[] = [
       "مدارس میں مطالعہ حلقے — چھوٹے طلبہ سیکھتے ہیں پھر قیادت کرتے ہیں",
       "تربیت یافتہ سلسلہ: آج کے اسٹال رضاکار کل کے مارچ لیڈ اور سرپرست بنتے ہیں",
     ],
-    image: "/images/team6.webp",
+    image: [
+      "/images/University Session.jfif",
+      "/images/University Session 2.jfif",
+      "/images/University Session 3.jfif",
+      "/images/Faisalabad Medical University.jfif",
+    ],
     imageAlt: "طلبہ متحرکی فیصل آباد",
     layout: "bento",
   },
@@ -265,7 +275,7 @@ export const domainsUr: DomainContent[] = [
       "کیمپس ٹیمیں جب قبضے سے منسلک فرنچائز کھلے تو ہفتہ بھر کی مہم چلاتی ہیں",
       "ہفتہ وار گروسری ایک انتخاب ہے — ہم شہر کو قبضے کی حمایت کیے بغیر خرچ کرنے میں مدد کرتے ہیں",
     ],
-    image: "/images/hero-1.webp",
+    image: "/images/hero-1.jfif",
     imageAlt: "بائیکاٹ فیصل آباد",
     layout: "manifesto",
   },

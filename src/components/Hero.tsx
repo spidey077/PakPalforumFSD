@@ -15,38 +15,19 @@ const SLIDE_INTERVAL_MS = 6000;
 export function Hero() {
   const { t } = useLanguage();
   const [activeSlide, setActiveSlide] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
   const scrollToSection = useScrollToSection();
   const { ref, isVisible } = useRevealOnScroll<HTMLElement>({ threshold: 0.08 });
   // Use a single static hero text for all background slides
   const staticTagline = "Stand for Al-Aqsa and Palestine";
   const staticSubtext = "Join students, volunteers, and organisers across Faisalabad.";
-  const visibleSlides = isMobile ? IMAGES.heroSlides.filter((_, i) => i !== 1) : IMAGES.heroSlides;
+  const visibleSlides = IMAGES.heroSlides;
 
   useEffect(() => {
-    // detect mobile using the same breakpoint as Tailwind's `sm` (max-width: 639px)
-    const mq = window.matchMedia("(max-width: 639px)");
-    const onChange = (e: MediaQueryListEvent | MediaQueryList) => setIsMobile(Boolean(e.matches));
-    // initial
-    onChange(mq);
-    // add listener
-    if (mq.addEventListener) mq.addEventListener("change", onChange as any);
-    else mq.addListener(onChange as any);
-    return () => {
-      if (mq.removeEventListener) mq.removeEventListener("change", onChange as any);
-      else mq.removeListener(onChange as any);
-    };
-  }, []);
-
-  useEffect(() => {
-    // reset active slide when slide set changes
-    setActiveSlide(0);
-
     const timer = window.setInterval(() => {
       setActiveSlide((current) => (current + 1) % visibleSlides.length);
     }, SLIDE_INTERVAL_MS);
     return () => window.clearInterval(timer);
-  }, [isMobile]);
+  }, [visibleSlides.length]);
 
   return (
     <section
