@@ -4,7 +4,7 @@ export const IMAGES = {
   heroSlides: [
     "/images/hero-1.jpeg",
     "/images/hero-2.jpeg",
-    "/images/hero-3.jfif",
+    "/images/hero-3.jpeg",
   ] as const,
   university: [
     "/images/University Session.jfif",
