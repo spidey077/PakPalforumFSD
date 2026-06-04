@@ -383,7 +383,7 @@ export function BentoLayout({ domain }: LayoutProps) {
         {domain.image && (
           <RevealItem delayMs={120} className="mt-6">
             {(() => {
-              const images = (Array.isArray(domain.image) ? domain.image : [domain.image]).slice(0, 3);
+              const images = (Array.isArray(domain.image) ? domain.image : [domain.image]).slice(0, 6);
               return (
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {images.map((src) => (

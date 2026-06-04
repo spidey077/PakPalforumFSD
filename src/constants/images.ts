@@ -7,9 +7,11 @@ export const IMAGES = {
     "/images/hero-1.jpeg",
   ] as const,
   university: [
-    "/images/University Session.jfif",
-    "/images/University Session 2.jfif",
-    "/images/University Session 3.jfif",
-    "/images/Faisalabad Medical University.jfif",
+    "/images/University Session 1.jpeg",
+    "/images/University Session 2.jpeg",
+    "/images/University Session 3.jpeg",
+    "/images/University Session 4.jpeg",
+    "/images/University Session 5.jpeg",
+    "/images/University Session 6.jpeg",
   ] as const,
 } as const;
