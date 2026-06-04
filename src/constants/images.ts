@@ -2,9 +2,9 @@ export const IMAGES = {
   logoTransparent: "/images/ppf logo transparent.webp",
   logo: "/images/PPF-logo.webp",
   heroSlides: [
-    "/images/hero-1.jpeg",
-    "/images/hero-2.jpeg",
     "/images/hero-3.jpeg",
+    "/images/hero-2.jpeg",
+    "/images/hero-1.jpeg",
   ] as const,
   university: [
     "/images/University Session.jfif",

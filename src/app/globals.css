@@ -67,21 +67,48 @@ body {
 }
 
 .hero-overlay {
+  /* Base subtle gradient to preserve image detail while adding contrast */
   background: linear-gradient(
-    transparent 0%,
-    rgba(5, 8, 6, 0.08) 24%,
-    rgba(5, 8, 6, 0.24) 48%,
-    rgba(5, 8, 6, 0.54) 72%,
-    #050806d1
+    to bottom,
+    rgba(0, 0, 0, 0.02) 0%,
+    rgba(0, 0, 0, 0.06) 18%,
+    rgba(0, 0, 0, 0.12) 36%,
+    rgba(0, 0, 0, 0.26) 64%,
+    rgba(0, 0, 0, 0.45) 100%
   );
 }
 
 .hero-overlay--strong::after {
+  /* Stronger overlay to ensure text contrast against bright images. Uses a vertical gradient
+     so the top keeps some image visibility while the bottom (where text sits) is darker. */
   content: "";
   pointer-events: none;
-  background: #00000024;
   position: absolute;
   inset: 0;
+  /* Darker overlay for stronger contrast. Increase opacities for legibility. */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.5) 36%,
+    rgba(0, 0, 0, 0.75) 64%,
+    rgba(0, 0, 0, 0.95) 100%
+  );
+}
+
+/* Improve text legibility on top of backgrounds */
+.hero-content h1 {
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.hero-content p {
+  text-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Add slight backdrop to CTA area on small screens for extra contrast */
+.hero-content .btn-cta,
+.hero-content .btn-outline {
+  /* ensure buttons remain legible over busy images */
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
 }
 
 .btn-cta {

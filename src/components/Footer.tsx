@@ -92,7 +92,7 @@ export function Footer() {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">
               {t.footer.socialTitle}
             </p>
-            <SocialLinkChips links={t.contact.socialFaisalabad} variant="chapter" />
+            <SocialLinkChips links={t.contact.socialFaisalabad} variant="chapter" mode="icons" />
             <p className="max-w-sm text-sm leading-6 text-[var(--color-text-muted)]">
               Follow the chapter for updates, field photos, and campaign announcements.
             </p>

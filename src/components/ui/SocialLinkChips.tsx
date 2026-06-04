@@ -10,6 +10,7 @@ type SocialLink = {
 type SocialLinkChipsProps = {
   links: readonly SocialLink[];
   variant?: "chapter" | "national";
+  mode?: "chips" | "icons";
 };
 
 type IconProps = {
@@ -88,8 +89,37 @@ function getSocialIcon(name: string) {
   return DefaultSocialIcon;
 }
 
-export function SocialLinkChips({ links, variant = "national" }: SocialLinkChipsProps) {
+export function SocialLinkChips({ links, variant = "national", mode = "chips" }: SocialLinkChipsProps) {
   const isChapter = variant === "chapter";
+
+  if (mode === "icons") {
+    return (
+      <div className="flex items-center gap-3">
+        {links.map((link) => {
+          const Icon = getSocialIcon(link.name);
+
+          return (
+            <a
+              key={link.url}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={link.name}
+              className={cn(
+                "inline-flex items-center justify-center h-10 w-10 rounded-full transition-transform duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]",
+                isChapter
+                  ? "bg-[var(--color-accent)]/10 text-[var(--color-text)] hover:scale-105 hover:bg-[var(--color-accent)]/15"
+                  : "bg-[var(--color-surface)] text-[var(--color-text-muted)] hover:scale-105 hover:text-[var(--color-text)]",
+              )}
+            >
+              <Icon className="h-5 w-5" />
+              <span className="sr-only">{link.name}</span>
+            </a>
+          );
+        })}
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-wrap gap-2">

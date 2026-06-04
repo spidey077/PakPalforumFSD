@@ -65,14 +65,14 @@ export function ContactSection() {
               <p className="mb-3 text-sm font-semibold text-[var(--color-text)]">
                 {t.contact.socialTitle}
               </p>
-              <SocialLinkChips links={t.contact.socialFaisalabad} variant="chapter" />
+              <SocialLinkChips links={t.contact.socialFaisalabad} variant="chapter" mode="icons" />
             </RevealItem>
 
             <RevealItem delayMs={360} className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
               <p className="mb-3 text-sm font-semibold text-[var(--color-text-muted)]">
                 {t.contact.socialNationalTitle}
               </p>
-              <SocialLinkChips links={t.contact.socialNational} variant="national" />
+              <SocialLinkChips links={t.contact.socialNational} variant="national" mode="icons" />
             </RevealItem>
           </div>
         </div>

@@ -86,6 +86,22 @@ export function ReliefLayout({ domain }: LayoutProps) {
           </RevealItem>
 
           <div className="grid gap-4 sm:grid-cols-2">
+            <RevealItem delayMs={120} className="reveal-item relative">
+              <div className="relative mx-auto inline-block overflow-hidden rounded-2xl border-2 border-[var(--color-accent)]/30 shadow-[0_24px_80px_rgba(255,71,74,0.15)]">
+                <img
+                  src={Array.isArray(domain.image) ? domain.image[0] : domain.image}
+                  alt={domain.imageAlt}
+                  className="block max-w-full h-auto object-contain bg-[var(--color-bg)]"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+              </div>
+              <div
+                className="pointer-events-none absolute -left-4 top-8 hidden h-24 w-24 rounded-full border border-[var(--color-accent)]/20 lg:block"
+                aria-hidden
+              />
+            </RevealItem>
+
             {[second, ...rest].map((item, i) => (
               <RevealItem
                 key={item}
