@@ -26,7 +26,7 @@ export function ContactSection() {
           </ExternalAnchor>
         </RevealItem>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="mt-12 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] mx-auto w-full max-w-5xl">
           <RevealItem delayMs={180} className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
             <h3 className="text-lg font-semibold text-[var(--color-text)]">
               {t.contact.donate.title}
@@ -49,7 +49,7 @@ export function ContactSection() {
             </div>
           </RevealItem>
 
-          <div className="space-y-6">
+          <div className="space-y-6 text-center sm:text-left">
             <RevealItem delayMs={240} className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
               <p className="text-sm text-[var(--color-text-muted)]">{t.contact.chapterPhone.label}</p>
               <a
