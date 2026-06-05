@@ -7,6 +7,12 @@ export type DomainId =
   | "students"
   | "boycott";
 
+export type CategoryShowcase = {
+  title: string;
+  description: string;
+  images: string[];
+};
+
 export type DomainContent = {
   id: DomainId;
   navLabel?: string;
@@ -25,6 +31,7 @@ export type DomainContent = {
     | "social-feed"
     | "bento"
     | "manifesto";
+  categories?: CategoryShowcase[];
 };
 
 export const domainOrder: DomainId[] = [
@@ -51,7 +58,7 @@ export const domainsEn: DomainContent[] = [
       "Countering misinformation through chapter-led media and on-ground outreach",
       "Coordinated with nationwide PPF narrative campaigns while rooted in Faisalabad",
     ],
-    image: "/images/instagram/Awareness and Narrative Building.png",
+    image: "/images/Awareness and Narative Building.jfif",
     imageAlt: "PPF Faisalabad awareness work",
     layout: "editorial-split",
   },
@@ -88,6 +95,62 @@ export const domainsEn: DomainContent[] = [
     image: "/images/instagram/Relief Work in Gaza.jpeg",
     imageAlt: "PPF Faisalabad relief for Gaza",
     layout: "editorial-split",
+    categories: [
+      {
+        title: "Food & Water Distribution",
+        description: "On-ground distribution of hot meals, clean drinking water, and essential food parcels inside Gaza.",
+        images: [
+          "/images/Gaza Relief Acitivity.jpeg",
+          "/images/Gaza Relief Acitivity 2.jpeg",
+          "/images/Gaza Relief Acitivity 3.jpeg",
+          "/images/Gaza Relief Acitivity 4.jpeg",
+          "/images/Gaza Relief Acitivity 5.jpeg",
+          "/images/Gaza Relief Acitivity 6.jpeg",
+          "/images/Gaza Relief Acitivity 7.jpeg",
+          "/images/Gaza Relief Acitivity 8.jpeg",
+          "/images/Gaza Relief Acitivity 9.jpeg",
+        ],
+      },
+      {
+        title: "Hospitalized Patient Care",
+        description: "Supporting hospitalized patients in Gaza with critical medical supplies, daily care, and basic necessities.",
+        images: [
+          "/images/Patient Care 1.jpeg",
+          "/images/Patient Care 2.jpeg",
+          "/images/Patient Care 3.jpeg",
+          "/images/Patient Care 4.jpeg",
+        ],
+      },
+      {
+        title: "Medical Camp",
+        description: "Setting up medical camps to provide emergency healthcare, check-ups, and medicines to families in Gaza.",
+        images: [
+          "/images/Medical Assistance 1.png",
+          "/images/Medical Assistance 2.png",
+          "/images/Medical Assistance 3.png",
+        ],
+      },
+      {
+        title: "Cash Distribution",
+        description: "Direct cash assistance to families in Gaza to help them purchase food, water, and immediate survival needs.",
+        images: [
+          "/images/Cash Distribution 1.png",
+          "/images/Cash Distribution 2.png",
+          "/images/Cash Distribution 3.png",
+          "/images/Cash Distribution 4.png",
+        ],
+      },
+      {
+        title: "Clothing & Essentials",
+        description: "Distribution of warm clothes, blankets, shoes, and hygiene kits to displaced families in Gaza.",
+        images: [
+          "/images/Cloting and essential 1.png",
+          "/images/Cloting and essential 2.png",
+          "/images/Cloting and essential 3.png",
+          "/images/Cloting and essential 4.png",
+        ],
+      },
+    ],
   },
   {
     id: "adoption",
@@ -102,9 +165,9 @@ export const domainsEn: DomainContent[] = [
       "Individuals, wedding redirects, and friend groups can pool monthly support for one family",
       "Relief feeds people today; adoption carries them through tomorrow when emergency appeals quieten",
     ],
-    image: "",
-    imageAlt: "",
-    layout: "timeline",
+    image: "/images/instagram/Virtual Adaption Program.png",
+    imageAlt: "PPF Faisalabad Virtual Adoption Program",
+    layout: "editorial-split",
   },
   {
     id: "social",
@@ -175,7 +238,7 @@ export const domainsUr: DomainContent[] = [
       "غلط معلومات کے خلاف چیپٹر کی میڈیا اور زمینی کوشش",
       "قومی پی پی ایف مہمات کے ساتھ ہم آہنگ، فیصل آباد میں جڑی ہوئی",
     ],
-    image: "/images/instagram/Awareness and Narrative Building.png",
+    image: "/images/Awareness and Narative Building.jfif",
     imageAlt: "پی پی ایف فیصل آباد آگاہی",
     layout: "editorial-split",
   },
@@ -212,6 +275,62 @@ export const domainsUr: DomainContent[] = [
     image: "/images/instagram/Relief Work in Gaza.jpeg",
     imageAlt: "غزہ امداد فیصل آباد",
     layout: "editorial-split",
+    categories: [
+      {
+        title: "خوراک اور پانی کی تقسیم",
+        description: "غزہ کے اندر گرم کھانوں، پینے کے صاف پانی اور ضروری غذائی پیکٹوں کی زمینی تقسیم۔",
+        images: [
+          "/images/Gaza Relief Acitivity.jpeg",
+          "/images/Gaza Relief Acitivity 2.jpeg",
+          "/images/Gaza Relief Acitivity 3.jpeg",
+          "/images/Gaza Relief Acitivity 4.jpeg",
+          "/images/Gaza Relief Acitivity 5.jpeg",
+          "/images/Gaza Relief Acitivity 6.jpeg",
+          "/images/Gaza Relief Acitivity 7.jpeg",
+          "/images/Gaza Relief Acitivity 8.jpeg",
+          "/images/Gaza Relief Acitivity 9.jpeg",
+        ],
+      },
+      {
+        title: "ہسپتالوں میں داخل مریضوں کی دیکھ بھال",
+        description: "غزہ کے ہسپتالوں میں داخل مریضوں کو طبی امداد، ضروری سامان اور دیکھ بھال فراہم کرنا۔",
+        images: [
+          "/images/Patient Care 1.jpeg",
+          "/images/Patient Care 2.jpeg",
+          "/images/Patient Care 3.jpeg",
+          "/images/Patient Care 4.jpeg",
+        ],
+      },
+      {
+        title: "میڈیکل کیمپ",
+        description: "غزہ میں خاندانوں کو ہنگامی طبی امداد، معائنہ اور ادویات فراہم کرنے کے لیے میڈیکل کیمپ لگانا۔",
+        images: [
+          "/images/Medical Assistance 1.png",
+          "/images/Medical Assistance 2.png",
+          "/images/Medical Assistance 3.png",
+        ],
+      },
+      {
+        title: "نقد رقم کی تقسیم",
+        description: "غزہ میں خاندانوں کو براہِ راست نقد امداد کی فراہمی تاکہ وہ فوری خوراک، پانی اور ضروریات خرید سکیں۔",
+        images: [
+          "/images/Cash Distribution 1.png",
+          "/images/Cash Distribution 2.png",
+          "/images/Cash Distribution 3.png",
+          "/images/Cash Distribution 4.png",
+        ],
+      },
+      {
+        title: "لباس اور دیگر ضروری اشیاء",
+        description: "غزہ میں بے گھر خاندانوں کو گرم کپڑوں، کمبلوں، جوتوں اور صفائی ستھرائی کے کٹس کی تقسیم۔",
+        images: [
+          "/images/Cloting and essential 1.png",
+          "/images/Cloting and essential 2.png",
+          "/images/Cloting and essential 3.png",
+          "/images/Cloting and essential 4.png",
+        ],
+      },
+    ],
   },
   {
     id: "adoption",
@@ -226,8 +345,8 @@ export const domainsUr: DomainContent[] = [
       "انفرادی، شادی کے تحائف سے کفالت، یا دوستوں کا گروپ ایک خاندان کے لیے ماہانہ جمع",
       "امداد آج کھلاتی ہے؛ اپنشن کل بھی سہارا دیتی ہے جب ایمرجنسی اپیلیں تھم جائیں",
     ],
-    image: "",
-    imageAlt: "",
+    image: "/images/instagram/Virtual Adaption Program.png",
+    imageAlt: "پاک فلسطین فورم ورچوئل اپنشن پروگرام",
     layout: "timeline",
   },
   {
