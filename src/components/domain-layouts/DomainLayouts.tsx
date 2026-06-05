@@ -183,12 +183,14 @@ export function EditorialSplitLayout({ domain }: LayoutProps) {
             {domain.categories.map((category, catIdx) => (
               <RevealItem key={category.title} delayMs={120 + catIdx * 80}>
                 <div className="mb-8">
-                  <h3 className="font-display text-lg font-bold uppercase tracking-wider text-[var(--color-text)] flex items-center gap-2 sm:text-xl">
-                    <span className="h-2 w-2 rounded-full bg-[var(--color-accent)]" />
-                    <span className="text-[var(--color-accent)] font-semibold">
-                      {lang === "en" ? "Showcase" : "نمایش"}:
-                    </span>{" "}
-                    {category.title}
+                  <h3 className="font-display text-lg font-bold uppercase tracking-wider text-[var(--color-text)] flex items-start gap-2 sm:text-xl">
+                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[var(--color-accent)]" />
+                    <span>
+                      <span className="text-[var(--color-accent)] font-semibold">
+                        {lang === "en" ? "Showcase" : "نمایش"}:
+                      </span>{" "}
+                      {category.title}
+                    </span>
                   </h3>
                   <p className="mt-2 text-sm text-[var(--color-text-muted)]">
                     {category.description}
@@ -237,17 +239,19 @@ export function EditorialSplitLayout({ domain }: LayoutProps) {
         {!domain.categories && isArrayImage && images.length > 1 && (
           <RevealItem delayMs={240} className="mt-16 border-t border-[var(--color-border)]/50 pt-12">
             <div className="mb-8">
-              <h3 className="font-display text-lg font-bold uppercase tracking-wider text-[var(--color-text)] flex items-center gap-2 sm:text-xl">
-                <span className="h-2 w-2 rounded-full bg-[var(--color-accent)]" />
-                {lang === "en" ? (
-                  <>
-                    <span className="text-[var(--color-accent)] font-semibold">Showcase:</span> Food & Water Distribution
-                  </>
-                ) : (
-                  <>
-                    <span className="text-[var(--color-accent)] font-semibold">نمایش:</span> خوراک اور پانی کی تقسیم
-                  </>
-                )}
+              <h3 className="font-display text-lg font-bold uppercase tracking-wider text-[var(--color-text)] flex items-start gap-2 sm:text-xl">
+                <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[var(--color-accent)]" />
+                <span>
+                  {lang === "en" ? (
+                    <>
+                      <span className="text-[var(--color-accent)] font-semibold">Showcase:</span> Food & Water Distribution
+                    </>
+                  ) : (
+                    <>
+                      <span className="text-[var(--color-accent)] font-semibold">نمایش:</span> خوراک اور پانی کی تقسیم
+                    </>
+                  )}
+                </span>
               </h3>
               <p className="mt-2 text-sm text-[var(--color-text-muted)]">
                 {lang === "en" 
