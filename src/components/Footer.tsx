@@ -106,19 +106,21 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 border-t border-[var(--color-border)] pt-6 text-sm text-[var(--color-text-muted)] sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col items-center gap-4 border-t border-[var(--color-border)] pt-6 text-center text-sm text-[var(--color-text-muted)]">
           <p>
             © {year} {t.siteName}. {t.footer.rights}
           </p>
-          <Link
-            href={t.mainSite.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 font-medium text-[var(--color-accent)] hover:underline"
-          >
-            Explore other chapters
-            <ExternalLink className="h-3.5 w-3.5" aria-hidden />
-          </Link>
+          <p>
+            Developed by{" "}
+            <Link
+              href="https://imdadullah.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-[var(--color-accent)] hover:underline"
+            >
+              Imdadullah
+            </Link>
+          </p>
         </div>
       </div>
     </footer>
